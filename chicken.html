@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           position: relative;
+           background-color: darkcyan;
+           
+        }
+        .container{
+            width: 600px;
+            height: 400px;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+           margin-top: 0px;
+        }
+        #dat1{
+            width: 100px;
+           
+            height: 20px;
+            background-color: rgb(232, 241, 241);
+        }
+        #dat2{
+            width: 100px;
+            height: 20px;
+            background-color: rgb(232, 241, 241);
+        }
+        #dat3{
+            width: 100px;
+            height: 20px;
+            background-color: rgb(232, 241, 241);
+        }
+        .result{
+            width: 300px;
+            height: 40px;
+            margin-top:20px ;
+           
+           
+        }
+        .buttons{
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .btn{
+            width: 100px;
+            height: 30px;
+        }
+        .options{
+            margin-top: 30px;
+            width: 100px;
+            height: 30px;
+        }
+        .equal{
+            width: 100px;
+            height: 30px; 
+           
+        }
+    </style>
+</head>
+<body>
+    <script>
+      
+     function sk(){
+        var live=document.getElementById("dat1").value;
+         var skin=document.getElementById("dat2").value;
+         var sless=document.getElementById("dat3").value;
+         var divv=document.createElement('div');
+         divv.setAttribute('class','divv');
+         divv.style="width:400px; height:50px; background-color:white; margin-left: 20px;  border-radius: 10px; display:inline; margin-top: 500px; position: static; display:flex;  flex-direction:row;";
+         var para1=document.createElement('p');
+         para1.setAttribute('class','para1');
+         para1.innerHTML=live;
+         var para2=document.createElement('p');
+         para2.setAttribute('class','para2');
+         para2.innerHTML=skin;
+         para2.style="margin-left:10px;";
+         var para3=document.createElement('p');
+         para3.setAttribute('class','para3');
+         para3.style="margin-left:10px;";
+         para3.innerHTML=sless;
+         divv.appendChild(para1);
+         divv.appendChild(para2);
+         divv.appendChild(para3);
+         document.body.append(divv);
+     }
+    </script>
+
+
+    <div class="container">
+         <div class="row">
+            <div class="clo">
+                <div class="inpt">
+                    <label>LIVE</label>
+                    <input type="text" id="dat1"  placeholder="Live price">
+                    <label>SKIN</label>
+                    <input type="text" id="dat2" placeholder="Skin price">
+                    <label>Sless</label>
+                    <input type="text" id="dat3" placeholder="Sless price">
+                </div>
+            </div>
+
+            <div class="clo">
+                <input type="text" class="result"  placeholder="Result">
+            </div>
+            <div class="clo">
+                <div class="buttons">
+                    <button class="btn">Skin</button>
+                    <button  class="btn">SLess</button>
+                    <button  class="btn">Live </button>
+                </div>
+             </div>
+             
+             <div class="clo">
+                <button class="equal" >*</button>
+                 <select class="options">
+                     <option>Select</option>
+                     <option>1</option>
+                     <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
+                     <option>6</option>
+                     <option>7</option>
+                 </select>
+                 <button class="equal"  onclick="sk()">=</button>
+             </div>
+             
+         </div>
+  </div>
+</body>
+</html>
