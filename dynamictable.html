@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    body {
+    background-color:rgb(252, 253, 253);
+    margin: 50px;
+    padding: 50px;
+    background-image: url(https://wallpaperaccess.com/full/526288.jpg);
+   
+    }
+    table{
+    background-color:gray;
+    } 
+    tr{
+    background-color:yellow;
+    }
+    input{
+    background-color:lightbrown;
+    
+    } 
+    .container{
+        background-color: thistle;
+        width: 350px;
+        height: 400px;
+        padding: 10px;
+        margin: 10px;
+    }
+    .col{
+        background: violet;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+        padding: 10px;
+        margin: 10px;
+    }
+    #live{
+        width: 80px;
+        height: 20px;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+    #skin{
+        width: 80px;
+        height: 20px;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+    #skless{
+        width: 80px;
+        height: 20px;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+    #mul{
+        width: 80px;
+        height: 30px;
+    }
+    #option{
+        width: 80px;
+        height: 30px;
+    }
+    #fin{
+        width: 80px;
+        height: 30px;
+    }
+    #rest{
+        width: 300px;
+        height: 50px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(88, 18, 218);
+       border-radius:9px ;
+    }
+    #rest:focus{
+            outline: none;
+        }
+    #bts{
+        width: 70px;
+        height: 30px;
+    }
+    </style>
+    </head>
+
+    <body>
+
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <div class="indata">
+                <input type="text"  id="live" placeholder="LIVE" >
+                <input type="text"  id="skin" placeholder="SKIN" >
+                <input type="text"   id="skless" placeholder="SLESS">
+                </div>
+            </div>
+
+            <div class="col">
+              <div class="result">
+                <input type="text" id="rest" placeholder="">
+              </div>
+            </div>
+
+            <div class="col">
+               <div class="btns">
+                <input type="button" onclick="live()"  value="LIVE">
+                <input type="button" onclick="skin()"  value="SKIN">
+                <input type="button"   onclick="skless()"  value="SLESS">
+               </div>
+            </div>
+
+              <div class="col">
+                <div class="btns">
+                 <input type="button"  id="mul" onclick="sai(value)" value="*">
+                      <select id="option" onchange="sai(value)">
+                        <option>SELECT</option>
+                        <option>1</option>
+                        <option>2</option>
+                         <option>3</option>
+                        <option>4</option>
+                       <option>5</option>
+                      </select>
+                  <input type="button"  id="fin" value="=" onclick="fun()">
+                  <input type="button"  onclick="clearscreen()" value="clear">
+                </div>
+               </div>
+
+             </div>
+        </div>
+   <p id="txt"></p>
+   
+  
+    <table id="sai" border="1">
+    <tr>
+    <th>S.NO </th>
+    <th>TYPE </th>
+    <th>QUANTITY</th>
+    <th>AMOUNT </th>
+   
+    </tr>
+    </table>
+
+
+    <script>
+        var a;
+        var i=0;
+        var opti;
+        function clearscreen(){
+            document.getElementById('rest').value=" ";
+        }
+   function sel(){
+       var option=document.getElementById("option").value;
+       var rest=document.getElementById("rest").value=option;
+      
+   }
+    function live(){
+        var live=document.getElementById("live").value;
+       var rest1=document.getElementById("rest").value=live;
+       a=document.getElementById("txt").innerHTML="LIVE";
+    }
+    function skin(){
+         var skin=document.getElementById("skin").value;
+         var rest2=document.getElementById("rest").value=skin;
+         a=document.getElementById("txt").innerHTML="SKIN";
+    }
+    function skless(){
+        var skless=document.getElementById("skless").value;
+        var rest3=document.getElementById("rest").value=skless;
+        a=document.getElementById("txt").innerHTML="SLESS";
+    }
+    function mul(){
+        var mul=document.getElementById("mul").value;
+        var rest=document.getElementById("rest").value=mul;
+    }
+    var rest=document.getElementById("rest");
+
+
+    function sai(value){
+            var rest=document.getElementById('rest');
+        rest.value=rest.value+value;
+
+        }
+        function fun(){
+           
+             var p=document.getElementById('rest').value;
+             var q=eval(p);
+             document.getElementById('rest').value=q; 
+
+             var div=document.createElement('div');
+             div.setAttribute('class','div');
+              div.style="width:200px; height:30px; background: violet; margin-top:30px;";
+
+              var label1=document.createElement('label');
+              label1.style="margin-left:30px";
+              label1.innerHTML=a;
+              var label2=document.createElement('label');
+              var option=document.getElementById("option").value;
+              label2.innerHTML=option;
+              label2.style="margin-left:30px";
+              var label3=document.createElement('label');
+              label3.innerHTML=q;
+              label3.style="margin-left:30px";
+              div.appendChild(label1);
+              div.appendChild(label2);
+              div.appendChild(label3);
+             document.body.append(div);
+
+             var table=document.getElementById("sai");
+             var row=table.insertRow(row);
+             var cell1=row.insertCell(0);
+             var cell2=row.insertCell(1);
+             var cell3=row.insertCell(2);
+             var cell4=row.insertCell(3);
+            i=i+1;
+             cell1.innerHTML=i;
+             cell2.innerHTML=a;
+             cell3.innerHTML=option;
+             cell4.innerHTML=q;
+            
+        }
+      
+    </script>
+    </body>
+</html>
